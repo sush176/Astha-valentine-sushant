@@ -24,7 +24,10 @@ body {
 }
 
 body.scroll-locked {
-  overflow: hidden;
+  overflow: hidden !important;
+  height: 100vh !important;
+  position: fixed;
+  width: 100%;
 }
 
 h1,
@@ -332,7 +335,7 @@ h3 {
   border: 2px solid rgba(255, 255, 255, 0.2);
   border-radius: 24px;
   padding: 40px;
-  text-align: center;
+  text-align: left;
   margin-bottom: 30px;
 }
 
