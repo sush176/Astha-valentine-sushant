@@ -1,7 +1,3 @@
 [build]
   command = "true"
   publish = "."
-
-[build.environment]
-  HUGO_VERSION = "0.121.1"
-  HUGO_ENABLEGITINFO = "false"
