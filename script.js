@@ -166,12 +166,15 @@ yesBtn.addEventListener('touchcancel', cancelLongPress);
 function triggerYesEffect() {
     if (isLongPress) return;
 
-    // Comprehensive Unlock
+    // Comprehensive Unlock for both desktop and mobile
     document.body.classList.remove('scroll-locked');
-    document.body.style.position = '';
-    document.body.style.width = '';
-    document.body.style.height = '';
-    document.body.style.overflow = '';
+    document.body.style.overflow = 'visible';
+    document.body.style.height = 'auto';
+    document.body.style.position = 'static';
+
+    // Also unlock html tag just in case
+    document.documentElement.style.overflow = 'visible';
+    document.documentElement.style.height = 'auto';
 
     triggerConfetti(200);
 
