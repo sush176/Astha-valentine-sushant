@@ -166,7 +166,7 @@ yesBtn.addEventListener('touchcancel', cancelLongPress);
 function triggerYesEffect() {
     if (isLongPress) return;
 
-    document.body.classList.remove('scroll-locked'); // Unlock scroll
+    document.body.classList.remove('scroll-locked'); // Unlock scroll immediately
     triggerConfetti(200);
 
     overlay.classList.remove('hidden');
@@ -174,7 +174,10 @@ function triggerYesEffect() {
 
     setTimeout(() => {
         overlay.classList.remove('visible');
-        setTimeout(() => overlay.classList.add('hidden'), 500);
+        setTimeout(() => {
+            overlay.classList.add('hidden');
+            document.body.classList.remove('scroll-locked'); // Redundant check
+        }, 500);
 
         document.getElementById('gallery-section').scrollIntoView({ behavior: 'smooth' });
     }, 3000);
